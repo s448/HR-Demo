@@ -1,0 +1,68 @@
+﻿@model IEnumerable<WebApplication2.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" enctype="multypart/form-data">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmplyeeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HiringDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NationalID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department.DepartmentName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmplyeeName)
+        </td>
+        <td>
+            <img src="~/Images/@item.ImageUser" width="50px" height="50px"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirthDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HiringDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NationalID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit" , "Delete") | 
+            @Html.ActionLink("Delete","Delete")
+        </td>
+    </tr>
+}
+
+</table>
